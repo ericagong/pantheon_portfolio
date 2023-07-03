@@ -1,0 +1,6 @@
+body {
+  font-size: 16px;
+  line-height: 1;
+  font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+  word-break: keep-all; /* 텍스트가 콘텐츠 박스에서 넘칠 때 줄바꿈 처리 속성 (한글 단어 단위 줄바꿈 처리) */
+}
