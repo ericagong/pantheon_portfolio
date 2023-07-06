@@ -23,6 +23,28 @@ a {
   color: inherit;
 }
 
+img {
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Inner */
+
+.inner {
+  /* inner 내 요소 배치 용이하도록 사전 처리 */
+  position: relative;
+
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 980px;
+}
+
+/* Button */
 .btn {
   display: flex;
   justify-content: center;
@@ -54,15 +76,69 @@ a {
   box-shadow: 0 0 0 4px #81b9f1;
 }
 
+/* Background Image Text */
+.bgtext {
+  display: block;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  text-indent: -999px;
+}
+
+/* Links */
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+a.link {
+  color: #0071e3;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+a.link:hover {
+  text-decoration: underline;
+}
+
+/* Figures */
+.figures {
+  position: relative;
+}
+
+.figures figure,
+.figures figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* 모두 공통된 위치에서 시작하되, 각 요소에 transform: translate()로 이동시킴: 장점: 중간에 요소 추가/삭제되어도 구조에 영향 받지 않고 위치 유지 */
+.figures figcaption * {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* 가상 요소 선택자로 > 표시 */
+a.link::after {
+  content: ' >';
+}
+
 /* Header */
 header {
+  /* z-index는 static에서는 미동작 */
+  position: relative;
+
   background-color: #3a3a3a;
+
+  z-index: 20;
 }
 
 header .inner {
-  position: relative;
-
-  margin: 0 auto;
   max-width: 1020px;
 }
 
@@ -387,7 +463,6 @@ nav .inner {
   display: flex;
   align-items: center;
 
-  margin: 0 auto;
   max-width: 1000px;
   height: 52px;
 }
@@ -432,7 +507,93 @@ nav .menu li.active:hover a {
   color: #1d1d1d;
 }
 
-nav .links {
+nav .outer-links {
   display: flex;
   gap: 10px;
+}
+
+/* Hero */
+.hero {
+  background-color: #f5f5f5;
+}
+
+.hero .inner {
+  padding-top: 110px;
+}
+
+.hero h1 {
+  position: absolute;
+
+  width: 221px;
+  height: 91px;
+
+  background-image: url('../images/hero_pj1_text.png');
+
+  z-index: 1;
+  transform: translate(624px, 235px);
+}
+
+.hero .figures {
+  height: 808px;
+}
+
+.hero figure {
+  transform: translate(74px, -64px);
+}
+
+.hero figure figcaption .caption-feature1 {
+  width: 157px;
+  height: 84px;
+
+  background-image: url('../images/hero_pj1_caption_feature1.png');
+
+  transform: translate(0px, 580px);
+}
+
+.hero figure figcaption .caption-feature2 {
+  width: 95px;
+  height: 43px;
+
+  background-image: url('../images/hero_pj1_caption_feature2.png');
+
+  transform: translate(589px, 510px);
+}
+
+.hero figure figcaption .caption-feature3 {
+  width: 110px;
+  height: 43px;
+
+  background-image: url('../images/hero_pj1_caption_feature3.png');
+
+  transform: translate(627px, 631px);
+}
+
+.hero h2 {
+  margin: 0 auto;
+  width: 739px;
+  height: 145px;
+
+  background-image: url('../images/hero_headline.png');
+}
+
+.hero p.summary {
+  margin-top: 40px;
+
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.hero p.description {
+  margin: 18px auto 0;
+  /* br 태그 대신 줄바꿈 처리 위해 width 도입 */
+  width: 88%;
+
+  font-size: 19px;
+  text-align: center;
+}
+
+/* 배치는 각각 따로 처리 */
+.hero .links {
+  margin-top: 30px;
 }
