@@ -6,6 +6,7 @@ const searchWrapperEl = headerEl.querySelector(".search-wrapper");
 const searchStarterEl = headerEl.querySelector(".search-starter");
 const searchCloserEl = searchWrapperEl.querySelector(".search-closer");
 const searchShadowEl = searchWrapperEl.querySelector(".shadow");
+const searchInputEl = searchWrapperEl.querySelector("input");
 const searchRecommendEls = [
   ...searchWrapperEl.querySelectorAll(".recommend li"),
 ];
@@ -25,6 +26,10 @@ function showSearchBar() {
       0.2 + (0.4 / searchRecommendEls.length) * i
     }s`;
   });
+  // 포커스 처리 (단, 화면에 다 렌더링 된 이후에 포커스 가능하므로, setTimeout 사용)
+  setTimeout(() => {
+    searchInputEl.focus();
+  }, 600); // inputEl의 transition-duration이 0.6s이므로 600ms 이후에 포커스 처리
 }
 
 function hideSearchBar() {
@@ -43,6 +48,8 @@ function hideSearchBar() {
   });
   // 원본 배열 유지
   searchRecommendEls.reverse();
+  // 검색어 지우기
+  searchInputEl.value = "";
 }
 
 // searching 클래스 선택자 토글처리

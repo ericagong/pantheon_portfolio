@@ -222,6 +222,9 @@ header .search input {
 
   font-size: 17px;
   color: #fff;
+
+  /* focus 시 border 없애기 */
+  outline: none;
 }
 
 header .search .search-icon,
