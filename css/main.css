@@ -16,10 +16,42 @@ body {
   word-break: keep-all; /* 텍스트가 콘텐츠 박스에서 넘칠 때 줄바꿈 처리 속성 (한글 단어 단위 줄바꿈 처리) */
 }
 
+/* 공통 속성 */
 a {
   text-decoration: none;
 
   color: inherit;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: 100px;
+  /* 버튼은 인라인 요소 */
+  padding: 0 10px;
+  height: 24px;
+
+  background-color: #0071e3;
+
+  font-size: 11px;
+  line-height: 1;
+  color: #fff;
+
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn:focus {
+  /* 접근성 tab 처리 위해, 그림자로 focus 시, 선처럼 보이도록 처리 */
+  /* x, y, blur, spread, color */
+  box-shadow: 0 0 0 4px #81b9f1;
 }
 
 /* Header */
@@ -333,4 +365,74 @@ header.searching .search .recommend li {
   transform: translate(0, 0);
   transition-delay: 0.2s;
   /* li 태그들의 transition-delay를 js 코드에서 작성  */
+}
+
+/* Navigation */
+nav {
+  /* nav의 부모요소는 body 태그, 따라서 body 태그의 범위 내에서 동작 */
+  position: sticky;
+  top: 0;
+
+  /* 쌓임 처리 */
+  z-index: 10;
+
+  border-bottom: 1px solid #d2d2d2;
+
+  background-color: rgba(255, 255, 255, 0.7);
+  /* 상위 요소 내부를 흐리게 처리  */
+  backdrop-filter: blur(20px);
+}
+
+nav .inner {
+  display: flex;
+  align-items: center;
+
+  margin: 0 auto;
+  max-width: 1000px;
+  height: 52px;
+}
+
+nav h1 {
+  /* 좌로 붙이고 우 끝에 붙이게 처리 */
+  flex-grow: 1;
+
+  font-size: 22px;
+  font-weight: 500;
+}
+
+nav .menu {
+  display: flex;
+  gap: 10px;
+
+  margin-right: 20px;
+}
+
+nav .menu li {
+}
+
+nav .menu li a {
+  display: block;
+
+  padding: 6px;
+
+  font-size: 11px;
+}
+
+nav .menu li:hover a {
+  color: #0071e3;
+}
+
+/* 활성 네비게이션 css 처리 */
+nav .menu li.active a {
+  opacity: 0.5;
+  cursor: default;
+}
+
+nav .menu li.active:hover a {
+  color: #1d1d1d;
+}
+
+nav .links {
+  display: flex;
+  gap: 10px;
 }
