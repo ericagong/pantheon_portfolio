@@ -45,6 +45,8 @@ header ul.menu > li {
   position: relative;
 
   display: flex;
+
+  transition: 0.4s;
 }
 
 header ul.menu > li > a {
@@ -91,8 +93,6 @@ header .contact-modal {
   top: calc(100% + 4px);
   right: -6px;
 
-  visibility: hidden;
-
   box-sizing: border-box;
   border: 1px solid #d2d2d2;
   border-radius: 10px;
@@ -101,13 +101,13 @@ header .contact-modal {
 
   background: #fff;
 
+  visibility: hidden;
   opacity: 0;
   transition: 0.4s;
 }
 
 header .contact-modal.show {
   visibility: visible;
-
   opacity: 1;
 }
 
@@ -172,16 +172,14 @@ header .search-wrapper {
   top: 0;
   left: 0;
 
-  display: none;
-
   /* 위치상 부모요소 가로 너비 그대로 받기 (구조 상 아님에 주의) */
   width: 100%;
   height: 100%;
-}
 
-/* searching 클래스 존재 시 검색바 보이게 처리 */
-header.searching .search-wrapper {
-  display: block;
+  /* 애니메이션 처리를 위해 visibility 사용 */
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
 }
 
 header .search {
@@ -259,7 +257,7 @@ header .search .search-closer:hover {
   opacity: 1;
 }
 
-header .search .autocompletes {
+header .search .recommend {
   position: absolute;
   top: 44px;
   left: 0;
@@ -274,14 +272,14 @@ header .search .autocompletes {
   background-color: #fff;
 }
 
-header .search .autocompletes h3 {
+header .search .recommend h3 {
   margin-bottom: 12px;
 
   font-size: 12px;
   color: #6e6e6e;
 }
 
-header .search .autocompletes ul li a {
+header .search .recommend ul li a {
   display: block;
 
   /* 좌우 늘어나게 처리 */
@@ -294,12 +292,42 @@ header .search .autocompletes ul li a {
 }
 
 /* 상위 태그 사용자 동작 시, 하위 태그 설정 가능 */
-header .search .autocompletes ul li:hover a {
+header .search .recommend ul li:hover a {
   background-color: #f5f5f5;
   color: #0071e3;
 }
 
+/* 애니메이션 처리 */
+header .search input,
+header .search .search-icon,
+header .search .recommend h3,
+header .search .recommend li {
+  transition: 0.6s;
+  transform: translate(100px, 0);
+}
+
+/* searching 클래스 존재 시 검색바 보이게 처리 */
+header.searching .search-wrapper {
+  visibility: visible;
+  opacity: 1;
+  /* 검색바 나타날 때만 딜레이 처리 */
+  transition-delay: 0.2s;
+}
+
 /* searching 클래스 존재 시, li 태그들을 안보이게 처리 */
 header.searching ul.menu > li {
-  display: none;
+  opacity: 0;
+  transform: scale(0.7);
+  /* transition-delay를 js 코드에서 작성  */
+}
+
+/* 애니메이션 처리 */
+header.searching .search input,
+header.searching .search .search-icon,
+header.searching .search .recommend h3,
+header.searching .search .recommend li {
+  /* 원래 위치로 복구 */
+  transform: translate(0, 0);
+  transition-delay: 0.2s;
+  /* li 태그들의 transition-delay를 js 코드에서 작성  */
 }
