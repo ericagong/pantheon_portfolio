@@ -1,3 +1,13 @@
+/* 검색바 보일 때, 스크롤 막기 */
+html.no-scroll {
+  position: fixed;
+
+  width: 100%;
+
+  /* scroll 필요 여부와 관계 없이 항상 스크롤 바 존재 */
+  overflow-y: scroll;
+}
+
 body {
   font-size: 16px;
   line-height: 1;
@@ -162,9 +172,16 @@ header .search-wrapper {
   top: 0;
   left: 0;
 
+  display: none;
+
   /* 위치상 부모요소 가로 너비 그대로 받기 (구조 상 아님에 주의) */
   width: 100%;
   height: 100%;
+}
+
+/* searching 클래스 존재 시 검색바 보이게 처리 */
+header.searching .search-wrapper {
+  display: block;
 }
 
 header .search {
