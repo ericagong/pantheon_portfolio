@@ -69,3 +69,83 @@ header ul.menu > li.contact-starter > a {
 header ul.menu > li > a:hover {
   opacity: 1;
 }
+
+/* Header / Menu / Contact */
+header .contact-modal {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: -6px;
+
+  visibility: hidden;
+
+  box-sizing: border-box;
+  border: 1px solid #d2d2d2;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 290px;
+
+  background: #fff;
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+header .contact-modal.show {
+  visibility: visible;
+
+  opacity: 1;
+}
+
+header .contact-modal .arrow {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+
+  overflow: hidden;
+
+  width: 20px;
+  height: 10px;
+}
+
+header .contact-modal .arrow::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  border: 1px solid #d2d2d2;
+  width: 12px;
+  height: 12px;
+
+  background-color: #fff;
+
+  content: '';
+
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+}
+
+header .contact-modal .message {
+  padding: 30px 0;
+
+  text-align: center;
+
+  font-size: 13px;
+  color: #6e6e6e;
+}
+
+header .contact-modal ul li {
+  border-top: 1px solid #d2d2d2;
+}
+
+header .contact-modal ul li a {
+  display: block;
+
+  padding: 14px;
+
+  font-size: 13px;
+  color: #0071e3;
+}
+
+header .contact-modal ul li a:hover {
+  text-decoration: underline;
+}
