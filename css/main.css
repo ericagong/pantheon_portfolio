@@ -4,3 +4,68 @@ body {
   font-family: 'Roboto', 'Noto Sans KR', sans-serif;
   word-break: keep-all; /* 텍스트가 콘텐츠 박스에서 넘칠 때 줄바꿈 처리 속성 (한글 단어 단위 줄바꿈 처리) */
 }
+
+a {
+  text-decoration: none;
+}
+
+/* Header */
+header {
+  background-color: #3a3a3a;
+}
+
+header .inner {
+  margin: 0 auto;
+  max-width: 1020px;
+}
+
+header ul.menu {
+  display: flex;
+  justify-content: space-between;
+
+  height: 44px;
+}
+
+header ul.menu > li {
+  position: relative;
+
+  display: flex;
+}
+
+header ul.menu > li > a {
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+
+  font-size: 11px;
+  color: #f5f5f5;
+  opacity: 0.8;
+}
+
+header ul.menu > li.portfolio-logo > a,
+header ul.menu > li.search-starter > a,
+header ul.menu > li.contact-starter > a {
+  width: 14px;
+
+  background-repeat: no-repeat;
+  background-position: center 13px;
+
+  text-indent: -9999px;
+}
+
+header ul.menu > li.portfolio-logo > a {
+  background-image: url('../images/header_portfolio.svg');
+}
+
+header ul.menu > li.search-starter > a {
+  background-image: url('../images/header_search.svg');
+}
+
+header ul.menu > li.contact-starter > a {
+  background-image: url('../images/header_contact.svg');
+}
+
+header ul.menu > li > a:hover {
+  opacity: 1;
+}
