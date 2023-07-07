@@ -1,3 +1,24 @@
+/* CSS 변수 선언 */
+html {
+  --color-white: #fff;
+  --color-black: #000;
+
+  --color-font: #1d1d1d;
+  --color-font-darkgray: #6e6e6e;
+  --color-font-middlegray: #b7b7b7;
+  --color-font-lightgray: #f5f5f5;
+
+  --color-border: #d2d2d2;
+  --color-shadow: rgba(0, 0, 0, 0.4);
+
+  --color-header: #3a3a3a;
+
+  --color-section: #f5f5f5;
+
+  --color-link: #0071e3;
+  --color-link-focus: #81b9f1;
+}
+
 /* 검색바 보일 때, 스크롤 막기 */
 html.no-scroll {
   position: fixed;
@@ -12,7 +33,7 @@ body {
   font-size: 16px;
   line-height: 1;
   font-family: 'Roboto', 'Noto Sans KR', sans-serif;
-  color: #1d1d1d;
+  color: var(--color-font);
   word-break: keep-all; /* 텍스트가 콘텐츠 박스에서 넘칠 때 줄바꿈 처리 속성 (한글 단어 단위 줄바꿈 처리) */
 }
 
@@ -56,11 +77,11 @@ p {
   padding: 0 10px;
   height: 24px;
 
-  background-color: #0071e3;
+  background-color: var(--color-link);
 
   font-size: 11px;
   line-height: 1;
-  color: #fff;
+  color: var(--color-white);
 
   outline: none;
   cursor: pointer;
@@ -73,7 +94,7 @@ p {
 .btn:focus {
   /* 접근성 tab 처리 위해, 그림자로 focus 시, 선처럼 보이도록 처리 */
   /* x, y, blur, spread, color */
-  box-shadow: 0 0 0 4px #81b9f1;
+  box-shadow: 0 0 0 4px var(--color-link-focus);
 }
 
 /* Background Image Text */
@@ -98,7 +119,7 @@ p {
 a.link {
   font-size: 19px;
   line-height: 1.3;
-  color: #0071e3;
+  color: var(--color-link);
 }
 
 a.link:hover {
@@ -131,11 +152,13 @@ a.link::after {
 
 /* Header */
 header {
+  --header-height: 44px;
+
   /* z-index는 static에서는 미동작 */
   position: relative;
   z-index: 20;
 
-  background-color: #3a3a3a;
+  background-color: var(--color-header);
 }
 
 header .inner {
@@ -146,7 +169,7 @@ header ul.menu {
   display: flex;
   justify-content: space-between;
 
-  height: 44px;
+  height: var(--header-height);
 }
 
 header ul.menu > li {
@@ -164,7 +187,7 @@ header ul.menu > li > a {
   padding: 0 10px;
 
   font-size: 11px;
-  color: #f5f5f5;
+  color: var(--color-font-lightgray);
   opacity: 0.8;
 }
 
@@ -202,12 +225,12 @@ header .contact-modal {
   right: -6px;
 
   box-sizing: border-box;
-  border: 1px solid #d2d2d2;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 10px 20px;
   width: 290px;
 
-  background: #fff;
+  background: var(--color-white);
 
   visibility: hidden;
   opacity: 0;
@@ -235,11 +258,11 @@ header .contact-modal .arrow::before {
   top: 0;
   left: 50%;
 
-  border: 1px solid #d2d2d2;
+  border: 1px solid var(--color-border);
   width: 12px;
   height: 12px;
 
-  background-color: #fff;
+  background-color: var(--color-white);
 
   content: '';
 
@@ -253,11 +276,11 @@ header .contact-modal .message {
   text-align: center;
 
   font-size: 13px;
-  color: #6e6e6e;
+  color: var(--color-font-darkgray);
 }
 
 header .contact-modal ul li {
-  border-top: 1px solid #d2d2d2;
+  border-top: 1px solid var(--color-border);
 }
 
 header .contact-modal ul li a {
@@ -266,7 +289,7 @@ header .contact-modal ul li a {
   padding: 14px;
 
   font-size: 13px;
-  color: #0071e3;
+  color: var(--color-link);
 }
 
 header .contact-modal ul li a:hover {
@@ -308,7 +331,7 @@ header .search .shadow {
   height: 100%;
 
   /* 불투명 처리 */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--color-shadow);
 }
 
 header .search .textfield {
@@ -323,13 +346,13 @@ header .search input {
   border-radius: 10px;
   padding: 0 40px;
   width: 100%;
-  height: 44px;
+  height: var(--header-height);
 
   /* 투명 배경 처리 */
   background-color: transparent;
 
   font-size: 17px;
-  color: #fff;
+  color: var(--color-white);
 
   /* focus 시 border 없애기 */
   outline: none;
@@ -341,7 +364,7 @@ header .search .search-closer {
   top: 0;
 
   width: 40px;
-  height: 44px;
+  height: var(--header-height);
 
   background-repeat: no-repeat;
   background-position: center;
@@ -370,7 +393,7 @@ header .search .search-closer:hover {
 
 header .search .recommend {
   position: absolute;
-  top: 44px;
+  top: var(--header-height);
   left: 0;
 
   /* padding으로 인해 요소가 커지지 않도록 처리 */
@@ -380,14 +403,14 @@ header .search .recommend {
   padding: 26px 40px 20px;
   width: 100%;
 
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 
 header .search .recommend h3 {
   margin-bottom: 12px;
 
   font-size: 12px;
-  color: #6e6e6e;
+  color: var(--color-font-darkgray);
 }
 
 header .search .recommend ul li a {
@@ -404,8 +427,8 @@ header .search .recommend ul li a {
 
 /* 상위 태그 사용자 동작 시, 하위 태그 설정 가능 */
 header .search .recommend ul li:hover a {
-  background-color: #f5f5f5;
-  color: #0071e3;
+  background-color: var(--color-section);
+  color: var(--color-link);
 }
 
 /* 애니메이션 처리 */
@@ -450,7 +473,7 @@ nav {
   top: 0;
   z-index: 10;
 
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid var(--color-border);
 
   background-color: rgba(255, 255, 255, 0.7);
   /* 상위 요소 내부를 흐리게 처리  */
@@ -489,7 +512,7 @@ nav .menu li a {
 }
 
 nav .menu li:hover a {
-  color: #0071e3;
+  color: var(--color-link);
 }
 
 /* 활성 네비게이션 css 처리 */
@@ -499,7 +522,7 @@ nav .menu li.active a {
 }
 
 nav .menu li.active:hover a {
-  color: #1d1d1d;
+  color: var(--color-font);
 }
 
 nav .outer-links {
@@ -509,7 +532,7 @@ nav .outer-links {
 
 /* Hero */
 .hero {
-  background-color: #f5f5f5;
+  background-color: var(--color-section);
 }
 
 .hero .inner {
