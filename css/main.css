@@ -1255,3 +1255,78 @@ nav .outer-links {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+/* Projects */
+.projects {
+  margin-top: 212px;
+}
+
+/* Projects / Summary */
+.projects .summary {
+  align-items: flex-end;
+
+  margin-top: 44px;
+  height: 400px;
+}
+
+.projects .summary h1 {
+  margin: 0 auto;
+  width: 530px;
+  height: 400px;
+
+  background-image: url('../images/ipados_headline.png');
+}
+
+/* Projects / Figures */
+
+.projects .figures {
+  display: flex;
+
+  height: 1300px;
+}
+
+/* div 요소가 flex container 균등 분할 */
+.projects .figures > div {
+  position: relative;
+
+  flex-grow: 1;
+}
+
+.projects .figures .figure-left figure {
+  transform: translate(-225px, 68px);
+}
+
+.projects .figures .figure-left figcaption {
+  width: 163px;
+  height: 53px;
+
+  background-image: url('../images/ipados_split_view_caption.png');
+
+  transform: translate(200px, -38px);
+}
+
+.projects .figures .figure-middle figure {
+  transform: translate(175px, 260px);
+}
+
+.projects .figures .figure-middle figcaption {
+  width: 161px;
+  height: 46px;
+
+  background-image: url('../images/ipados_widgets_caption.png');
+
+  transform: translate(257px, 497px);
+}
+
+.projects .figures .figure-right figure {
+  transform: translate(-660px, 580px);
+}
+
+.projects .figures .figure-right figcaption {
+  width: 82px;
+  height: 97px;
+
+  background-image: url('../images/ipados_quick_note_caption.png');
+
+  transform: translate(511px, 470px);
+}
