@@ -192,6 +192,11 @@ a.link::after {
   transform: translate(0, 0);
 }
 
+/* 더 큰 박스 처리 */
+.infos--large .info {
+  max-width: 410px;
+}
+
 /* Infos / Info / Icon */
 /* 애니메이션 처리를 위한 keyframes 정의 */
 @keyframes sprite-icon {
@@ -1199,4 +1204,54 @@ nav .outer-links {
   background-image: url('../images/wireless_files_caption.png');
 
   transform: translate(96px, 639px);
+}
+
+/* Project 5 */
+.project5 {
+  margin-top: 195px;
+}
+
+/* Project 5 / Introduction */
+.project5 .introduction {
+}
+
+.project5 .introduction h1 {
+  margin: 0 auto;
+  width: 550px;
+  height: 343px;
+
+  background-image: url('../images/accessories_headline.png');
+}
+
+.project5 .introduction .figures {
+  margin-top: 34px;
+  height: 1021px;
+}
+
+.project5 .introduction figure {
+  transform: translate(-24px, 0);
+}
+
+.project5 .introduction figcaption .caption-memo {
+  width: 169px;
+  height: 41px;
+
+  background-image: url('../images/accessories_caption_memo.png');
+
+  transform: translate(870px, -60px);
+}
+.project5 .introduction figcaption .caption-supports {
+  width: 200px;
+  height: 70px;
+
+  background-image: url('../images/accessories_caption_supports.png');
+
+  transform: translate(160px, 820px);
+}
+
+/* Project 5 / Features */
+.project5 .infos {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
