@@ -131,9 +131,18 @@ a.link::after {
   content: ' >';
 }
 
+/* TroubleShooting */
+.troubleshooting {
+  display: flex;
+  /* TODO 삭제 */
+  border: 1px solid red;
+}
+
 /* Figures */
 .figures {
   position: relative;
+
+  flex-grow: 1;
 }
 
 .figures figure,
@@ -148,6 +157,39 @@ a.link::after {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/* Infos */
+.infos {
+  display: flex;
+  flex-direction: column;
+}
+/* 요소 클래스에 따라 주축(수직) 중앙 정렬/ 끝 정렬 등 상이하게 처리 */
+.infos.infos--center {
+  justify-content: center;
+}
+.infos.infos--end {
+  justify-content: flex-end;
+}
+
+/* Infos / Info */
+.info {
+  margin-bottom: 24px;
+  max-width: 330px;
+}
+
+.info .icon {
+  margin: 0 0 -15px -30px;
+  width: 100px;
+  height: 100px;
+
+  background-image: url('../images/sprite_apps.png');
+}
+
+.info p {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 /* Header */
@@ -613,5 +655,77 @@ nav .outer-links {
 
 /* 배치는 각각 따로 처리 */
 .hero .links {
-  margin-top: 30px;
+  padding: 30px 0 70px 0;
+}
+
+/* Project 1 */
+.project1 {
+  margin-top: 110px;
+}
+
+/* Project 1 / Features */
+.project1 .features h1 {
+  width: 500px;
+  height: 280px;
+
+  background-image: url('../images/power_headline.png');
+
+  transform: translate(104px, 0);
+}
+
+.project1 .features .figures {
+  height: 773px;
+}
+
+.project1 .features .figures figcaption {
+  width: 138px;
+  height: 46px;
+
+  background-image: url(../images/power_multiple_apps_caption.png);
+
+  transform: translate(703px, -47px);
+}
+
+/* Project 1 / Troubleshooting 1 */
+.project1 .troubleshooting1 {
+  margin-top: 100px;
+}
+
+.project1 .troubleshooting1 .figures {
+  height: 600px;
+}
+
+.project1 .troubleshooting1 figure {
+  transform: translate(-300px, -60px);
+}
+
+.project1 .troubleshooting1 figcaption {
+  width: 150px;
+  height: 77px;
+
+  background-image: url('../images/power_arcade_caption.png');
+
+  transform: translate(482px, 662px);
+}
+
+/* Project 1 / Troubleshooting 2 */
+.project1 .troubleshooting2 {
+  margin-top: 200px;
+}
+
+.project1 .troubleshooting2 .figures {
+  height: 772px;
+}
+
+.project1 .troubleshooting2 figure {
+  transform: translate(80px, -50px);
+}
+
+.project1 .troubleshooting2 figcaption {
+  width: 142px;
+  height: 46px;
+
+  background-image: url('../images/power_create_caption.png');
+
+  transform: translate(548px, 908px);
 }
