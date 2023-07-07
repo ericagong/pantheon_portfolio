@@ -40,6 +40,27 @@ const infoEls = document.querySelectorAll(".info");
 // 관찰 요소 등록
 infoEls.forEach((el) => io.observe(el));
 
+// video play/pause logic
+// project3 video
+const videoEl = document.querySelector(".project3 video");
+const playBtnEl = document.querySelector(".project3 .controller-play");
+const pauseBtnEl = document.querySelector(".project3 .controller-pause");
+
+function pauseVideo() {
+  videoEl.pause();
+  playBtnEl.classList.remove("hide");
+  pauseBtnEl.classList.add("hide");
+}
+
+function playVideo() {
+  videoEl.play();
+  pauseBtnEl.classList.remove("hide");
+  playBtnEl.classList.add("hide");
+}
+
+playBtnEl.addEventListener("click", playVideo);
+pauseBtnEl.addEventListener("click", pauseVideo);
+
 // search bar logic
 const headerEl = document.querySelector("header");
 // NodeList를 배열 형태로 바꾸기 위해 ... 사용(얕은 복사)

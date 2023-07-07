@@ -131,8 +131,8 @@ a.link::after {
   content: ' >';
 }
 
-/* TroubleShooting */
-.troubleshooting {
+/* Box */
+.box {
   display: flex;
   /* TODO 삭제 */
   border: 1px solid red;
@@ -146,6 +146,7 @@ a.link::after {
 }
 
 .figures figure,
+.figures video,
 .figures figcaption {
   position: absolute;
   top: 0;
@@ -1048,4 +1049,99 @@ nav .outer-links {
   background-image: url('../images/power_arcade_caption.png');
 
   transform: translate(482px, 662px);
+}
+
+/* Project 3 */
+.project3 {
+  margin-top: 400px;
+}
+
+/* Project 3 / Introduction */
+.project3 .introduction {
+  position: relative;
+}
+
+.project3 .introduction h1 {
+  width: 650px;
+  height: 450px;
+
+  background-image: url('../images/camera_headline.png');
+
+  transform: translate(-25px, 0);
+}
+
+.project3 .introduction .info {
+  /* 형제 요소와 상호작용하지 않고 HTML 구조에서 빠짐 */
+  position: absolute;
+  top: 200px;
+  right: 0;
+}
+
+.project3 .introduction .figures {
+  margin-top: 24px;
+  height: 770px;
+}
+
+.project3 .introduction figure {
+  transform: translate(90px, 0);
+}
+
+.project3 .introduction video {
+  top: 36px;
+  left: 76px;
+
+  -webkit-mask-image: url('../images/camera_video_mask.png');
+  mask-image: url('../images/camera_video_mask.png');
+}
+
+.project3 .introduction .controller-play,
+.project3 .introduction .controller-pause {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 30px;
+  width: 20px;
+
+  color: var(--color-link);
+
+  cursor: pointer;
+
+  transform: translate(428px, -134px) rotate(-4deg);
+}
+
+.project3 .introduction .controller-play:hover,
+.project3 .introduction .controller-pause:hover {
+  text-decoration: underline;
+}
+
+.project3 .introduction .controller-play.hide,
+.project3 .introduction .controller-pause.hide {
+  display: none;
+}
+
+.project3 .introduction figcaption {
+  width: 130px;
+  height: 110px;
+
+  background-image: url('../images/camera_hardware_caption.png');
+  transform: translate(-120px, 331px);
+}
+
+/* Project 3 / Features */
+.project3 .features .figures {
+  height: 910px;
+}
+
+.project3 .features figure {
+  transform: translate(120px, 0);
+}
+
+.project3 .features figcaption {
+  width: 130px;
+  height: 47px;
+
+  background-image: url('../images/camera_edit_caption.png');
+
+  transform: translate(210px, 925px);
 }
