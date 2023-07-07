@@ -176,6 +176,19 @@ a.link::after {
 .info {
   margin-bottom: 24px;
   max-width: 330px;
+
+  transition: 1s;
+
+  opacity: 0;
+
+  transform: translate(0, 100px);
+}
+
+/* 뷰포트 내에 들어올 때만 보이도록 처리 */
+.info.show {
+  opacity: 1;
+
+  transform: translate(0, 0);
 }
 
 /* Infos / Info / Icon */

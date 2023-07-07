@@ -24,6 +24,22 @@ function createKeyframesRule() {
   return frames;
 }
 
+// info의 뷰포트 내 가시성 여부에 따라 애니메이션 처리
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const { isIntersecting, target } = entry;
+    if (!isIntersecting) {
+      return;
+    } else {
+      target.classList.add("show");
+    }
+  });
+});
+
+const infoEls = document.querySelectorAll(".info");
+// 관찰 요소 등록
+infoEls.forEach((el) => io.observe(el));
+
 // search bar logic
 const headerEl = document.querySelector("header");
 // NodeList를 배열 형태로 바꾸기 위해 ... 사용(얕은 복사)
