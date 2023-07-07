@@ -36,7 +36,7 @@ p {
 /* Inner */
 
 .inner {
-  /* inner 내 요소 배치 용이하도록 사전 처리 */
+  /* inner 내 요소 배치 용이하도록 사전 위치상 부모 요소 처리 */
   position: relative;
 
   margin: 0 auto;
@@ -62,8 +62,8 @@ p {
   line-height: 1;
   color: #fff;
 
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -77,6 +77,7 @@ p {
 }
 
 /* Background Image Text */
+/* 웹 접근성 고려해 text-indent로 내부 텍스트 처리 */
 .bgtext {
   display: block;
 
@@ -84,7 +85,7 @@ p {
   background-position: center;
   background-size: contain;
 
-  text-indent: -999px;
+  text-indent: -9999px;
 }
 
 /* Links */
@@ -95,13 +96,18 @@ p {
 }
 
 a.link {
-  color: #0071e3;
   font-size: 19px;
   line-height: 1.3;
+  color: #0071e3;
 }
 
 a.link:hover {
   text-decoration: underline;
+}
+
+/* 가상 요소 선택자로 > 표시 */
+a.link::after {
+  content: ' >';
 }
 
 /* Figures */
@@ -123,19 +129,13 @@ a.link:hover {
   left: 0;
 }
 
-/* 가상 요소 선택자로 > 표시 */
-a.link::after {
-  content: ' >';
-}
-
 /* Header */
 header {
   /* z-index는 static에서는 미동작 */
   position: relative;
+  z-index: 20;
 
   background-color: #3a3a3a;
-
-  z-index: 20;
 }
 
 header .inner {
@@ -448,8 +448,6 @@ nav {
   /* nav의 부모요소는 body 태그, 따라서 body 태그의 범위 내에서 동작 */
   position: sticky;
   top: 0;
-
-  /* 쌓임 처리 */
   z-index: 10;
 
   border-bottom: 1px solid #d2d2d2;
@@ -480,9 +478,6 @@ nav .menu {
   gap: 10px;
 
   margin-right: 20px;
-}
-
-nav .menu li {
 }
 
 nav .menu li a {
@@ -523,13 +518,13 @@ nav .outer-links {
 
 .hero h1 {
   position: absolute;
+  z-index: 1;
 
   width: 221px;
   height: 91px;
 
   background-image: url('../images/hero_pj1_text.png');
 
-  z-index: 1;
   transform: translate(624px, 235px);
 }
 
