@@ -1,3 +1,29 @@
+// sprite image's keyframes logic
+function createKeyframesRule() {
+  let x = 0;
+  let y = 0;
+  let frames = "";
+
+  for (let i = 0; i < 60; i += 1) {
+    const percent = `${((100 / 60) * i).toFixed(2)}%`;
+    const rule = `{ background-position: ${x}${x === 0 ? "" : "px"} ${y}${
+      y === 0 ? "" : "px"
+    }; }`;
+    frames += `${percent} ${rule}\n`;
+
+    // 다음 아이콘으로 전환
+    if (x <= -500) {
+      x = 0;
+      y -= 100;
+      continue;
+    }
+
+    x -= 100;
+  }
+
+  return frames;
+}
+
 // search bar logic
 const headerEl = document.querySelector("header");
 // NodeList를 배열 형태로 바꾸기 위해 ... 사용(얕은 복사)
