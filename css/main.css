@@ -997,3 +997,55 @@ nav .outer-links {
 
   transform: translate(548px, 908px);
 }
+
+/* Project 2 */
+.project2 {
+  margin-top: 450px;
+}
+
+/* Project 2 / Features */
+.project2 .features h1 {
+  width: 500px;
+  height: 280px;
+
+  background-image: url('../images/display_headline.png');
+
+  transform: translate(104px, 0);
+}
+
+.project2 .features .figures {
+  margin-top: 26px;
+
+  height: 814px;
+}
+
+.project2 .features .figures figcaption {
+  width: 145px;
+  height: 45px;
+
+  background-image: url('../images/display_notes_caption.png');
+
+  transform: translate(733px, -25px);
+}
+
+/* Project 2 / Troubleshooting 1 */
+.project2 .troubleshooting1 {
+  margin-top: 100px;
+}
+
+.project2 .troubleshooting1 .figures {
+  height: 600px;
+}
+
+.project2 .troubleshooting1 figure {
+  transform: translate(-300px, -60px);
+}
+
+.project2 .troubleshooting1 figcaption {
+  width: 150px;
+  height: 77px;
+
+  background-image: url('../images/power_arcade_caption.png');
+
+  transform: translate(482px, 662px);
+}
