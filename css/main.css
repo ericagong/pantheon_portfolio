@@ -1,0 +1,1332 @@
+/* CSS 변수 선언 */
+html {
+  --color-white: #fff;
+  --color-black: #000;
+
+  --color-font: #1d1d1d;
+  --color-font-darkgray: #6e6e6e;
+  --color-font-middlegray: #b7b7b7;
+  --color-font-lightgray: #f5f5f5;
+
+  --color-border: #d2d2d2;
+  --color-shadow: rgba(0, 0, 0, 0.4);
+
+  --color-header: #3a3a3a;
+
+  --color-section: #f5f5f5;
+
+  --color-link: #0071e3;
+  --color-link-focus: #81b9f1;
+}
+
+/* 검색바 보일 때, 스크롤 막기 */
+html.no-scroll {
+  position: fixed;
+
+  width: 100%;
+
+  /* scroll 필요 여부와 관계 없이 항상 스크롤 바 존재 */
+  overflow-y: scroll;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1;
+  font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+  color: var(--color-font);
+  word-break: keep-all; /* 텍스트가 콘텐츠 박스에서 넘칠 때 줄바꿈 처리 속성 (한글 단어 단위 줄바꿈 처리) */
+}
+
+/* 공통 속성 */
+a {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+img {
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Inner */
+
+.inner {
+  /* inner 내 요소 배치 용이하도록 사전 위치상 부모 요소 처리 */
+  position: relative;
+
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 980px;
+}
+
+/* Button */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: 100px;
+  /* 버튼은 인라인 요소 */
+  padding: 0 10px;
+  height: 24px;
+
+  background-color: var(--color-link);
+
+  font-size: 11px;
+  line-height: 1;
+  color: var(--color-white);
+
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn:focus {
+  /* 접근성 tab 처리 위해, 그림자로 focus 시, 선처럼 보이도록 처리 */
+  /* x, y, blur, spread, color */
+  box-shadow: 0 0 0 4px var(--color-link-focus);
+}
+
+/* Background Image Text */
+/* 웹 접근성 고려해 text-indent로 내부 텍스트 처리 */
+.bgtext {
+  display: block;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  text-indent: -9999px;
+}
+
+/* Links */
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+a.link {
+  font-size: 19px;
+  line-height: 1.3;
+  color: var(--color-link);
+}
+
+a.link:hover {
+  text-decoration: underline;
+}
+
+/* 가상 요소 선택자로 > 표시 */
+a.link::after {
+  content: ' >';
+}
+
+/* Box */
+.box {
+  display: flex;
+  /* TODO 삭제 */
+  border: 1px solid red;
+}
+
+/* Figures */
+.figures {
+  position: relative;
+
+  flex-grow: 1;
+}
+
+.figures figure,
+.figures video,
+.figures figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* 모두 공통된 위치에서 시작하되, 각 요소에 transform: translate()로 이동시킴: 장점: 중간에 요소 추가/삭제되어도 구조에 영향 받지 않고 위치 유지 */
+.figures figcaption * {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Infos */
+.infos {
+  display: flex;
+  flex-direction: column;
+}
+/* 요소 클래스에 따라 주축(수직) 중앙 정렬/ 끝 정렬 등 상이하게 처리 */
+.infos.infos--center {
+  justify-content: center;
+}
+.infos.infos--end {
+  justify-content: flex-end;
+}
+
+/* Infos / Info */
+.info {
+  margin-bottom: 24px;
+  max-width: 330px;
+
+  transition: 1s;
+
+  opacity: 0;
+
+  transform: translate(0, 100px);
+}
+
+/* 뷰포트 내에 들어올 때만 보이도록 처리 */
+.info.show {
+  opacity: 1;
+
+  transform: translate(0, 0);
+}
+
+/* 더 큰 박스 처리 */
+.infos--large .info {
+  max-width: 410px;
+}
+
+/* Infos / Info / Icon */
+/* 애니메이션 처리를 위한 keyframes 정의 */
+@keyframes sprite-icon {
+  /* 1~10 */
+  0.00% {
+    background-position: 0 0;
+  }
+  1.67% {
+    background-position: -100px 0;
+  }
+  3.33% {
+    background-position: -200px 0;
+  }
+  5.00% {
+    background-position: -300px 0;
+  }
+  6.67% {
+    background-position: -400px 0;
+  }
+  8.33% {
+    background-position: -500px 0;
+  }
+  10.00% {
+    background-position: 0 -100px;
+  }
+  11.67% {
+    background-position: -100px -100px;
+  }
+  13.33% {
+    background-position: -200px -100px;
+  }
+  15.00% {
+    background-position: -300px -100px;
+  }
+
+  /* 11~20 */
+  16.67% {
+    background-position: -400px -100px;
+  }
+  18.33% {
+    background-position: -500px -100px;
+  }
+  20.00% {
+    background-position: 0 -200px;
+  }
+  21.67% {
+    background-position: -100px -200px;
+  }
+  23.33% {
+    background-position: -200px -200px;
+  }
+  25.00% {
+    background-position: -300px -200px;
+  }
+  26.67% {
+    background-position: -400px -200px;
+  }
+  28.33% {
+    background-position: -500px -200px;
+  }
+  30.00% {
+    background-position: 0 -300px;
+  }
+  31.67% {
+    background-position: -100px -300px;
+  }
+
+  /* 21~30 */
+  33.33% {
+    background-position: -200px -300px;
+  }
+  35.00% {
+    background-position: -300px -300px;
+  }
+  36.67% {
+    background-position: -400px -300px;
+  }
+  38.33% {
+    background-position: -500px -300px;
+  }
+  40.00% {
+    background-position: 0 -400px;
+  }
+  41.67% {
+    background-position: -100px -400px;
+  }
+  43.33% {
+    background-position: -200px -400px;
+  }
+  45.00% {
+    background-position: -300px -400px;
+  }
+  46.67% {
+    background-position: -400px -400px;
+  }
+  48.33% {
+    background-position: -500px -400px;
+  }
+
+  /* 31~40 */
+  50.00% {
+    background-position: 0 -500px;
+  }
+  51.67% {
+    background-position: -100px -500px;
+  }
+  53.33% {
+    background-position: -200px -500px;
+  }
+  55.00% {
+    background-position: -300px -500px;
+  }
+  56.67% {
+    background-position: -400px -500px;
+  }
+  58.33% {
+    background-position: -500px -500px;
+  }
+  60.00% {
+    background-position: 0 -600px;
+  }
+  61.67% {
+    background-position: -100px -600px;
+  }
+  63.33% {
+    background-position: -200px -600px;
+  }
+  65.00% {
+    background-position: -300px -600px;
+  }
+
+  /* 41~50 */
+  66.67% {
+    background-position: -400px -600px;
+  }
+  68.33% {
+    background-position: -500px -600px;
+  }
+  70.00% {
+    background-position: 0 -700px;
+  }
+  71.67% {
+    background-position: -100px -700px;
+  }
+  73.33% {
+    background-position: -200px -700px;
+  }
+  75.00% {
+    background-position: -300px -700px;
+  }
+  76.67% {
+    background-position: -400px -700px;
+  }
+  78.33% {
+    background-position: -500px -700px;
+  }
+  80.00% {
+    background-position: 0 -800px;
+  }
+  81.67% {
+    background-position: -100px -800px;
+  }
+
+  /* 51~60 */
+  83.33% {
+    background-position: -200px -800px;
+  }
+  85.00% {
+    background-position: -300px -800px;
+  }
+  86.67% {
+    background-position: -400px -800px;
+  }
+  88.33% {
+    background-position: -500px -800px;
+  }
+  90.00% {
+    background-position: 0 -900px;
+  }
+  91.67% {
+    background-position: -100px -900px;
+  }
+  93.33% {
+    background-position: -200px -900px;
+  }
+  95.00% {
+    background-position: -300px -900px;
+  }
+  96.67% {
+    background-position: -400px -900px;
+  }
+  98.33% {
+    background-position: -500px -900px;
+  }
+}
+
+.info .icon {
+  margin: 0 0 -15px -30px;
+  width: 100px;
+  height: 100px;
+
+  background-image: url('../images/sprite_apps.png');
+
+  /* 뚝뚝 끊기는 애니메이션 무한 반복 처리 */
+  animation: sprite-icon 3s steps(1) infinite;
+}
+
+/* Infos / Info / Icon sprite img 처리 */
+.info .icon.icon--chip {
+  background-image: url('../images/sprite_chip.png');
+}
+.info .icon.icon--faster {
+  background-image: url('../images/sprite_faster.png');
+}
+.info .icon.icon--neural {
+  background-image: url('../images/sprite_neural.png');
+}
+.info .icon.icon--apps {
+  background-image: url('../images/sprite_apps.png');
+}
+.info .icon.icon--battery {
+  background-image: url('../images/sprite_battery.png');
+}
+.info .icon.icon--display {
+  background-image: url('../images/sprite_display.png');
+}
+.info .icon.icon--true-tone {
+  background-image: url('../images/sprite_true_tone.png');
+}
+.info .icon.icon--center-stage {
+  background-image: url('../images/sprite_center_stage.png');
+}
+.info .icon.icon--front-camera {
+  background-image: url('../images/sprite_front_camera.png');
+}
+.info .icon.icon--back-camera {
+  background-image: url('../images/sprite_back_camera.png');
+}
+.info .icon.icon--scan {
+  background-image: url('../images/sprite_scan.png');
+}
+.info .icon.icon--download {
+  background-image: url('../images/sprite_download.png');
+}
+.info .icon.icon--wifi {
+  background-image: url('../images/sprite_wifi.png');
+}
+.info .icon.icon--lte {
+  background-image: url('../images/sprite_lte.png');
+}
+.info .icon.icon--pencil {
+  background-image: url('../images/sprite_pencil.png');
+}
+.info .icon.icon--keyboard {
+  background-image: url('../images/sprite_keyboard.png');
+}
+.info .icon.icon--notes {
+  background-image: url('../images/sprite_notes.png');
+}
+.info .icon.icon--covers {
+  background-image: url('../images/sprite_covers.png');
+}
+
+.info p {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.info a.link {
+  /* a태그는 인라인 요소 */
+  display: block;
+
+  margin-top: 44px;
+
+  font-size: 20px;
+}
+
+/* Header */
+header {
+  --header-height: 44px;
+
+  /* z-index는 static에서는 미동작 */
+  position: relative;
+  z-index: 20;
+
+  background-color: var(--color-header);
+}
+
+header .inner {
+  max-width: 1020px;
+}
+
+header ul.menu {
+  display: flex;
+  justify-content: space-between;
+
+  height: var(--header-height);
+}
+
+header ul.menu > li {
+  position: relative;
+
+  display: flex;
+
+  transition: 0.4s;
+}
+
+header ul.menu > li > a {
+  display: flex;
+  align-items: center;
+
+  padding: 0 10px;
+
+  font-size: 11px;
+  color: var(--color-font-lightgray);
+  opacity: 0.8;
+}
+
+header ul.menu > li.portfolio-logo > a,
+header ul.menu > li.search-starter > a,
+header ul.menu > li.contact-starter > a {
+  width: 14px;
+
+  background-repeat: no-repeat;
+  background-position: center 13px;
+
+  text-indent: -9999px;
+}
+
+header ul.menu > li.portfolio-logo > a {
+  background-image: url('../images/header_portfolio.svg');
+}
+
+header ul.menu > li.search-starter > a {
+  background-image: url('../images/header_search.svg');
+}
+
+header ul.menu > li.contact-starter > a {
+  background-image: url('../images/header_contact.svg');
+}
+
+header ul.menu > li > a:hover {
+  opacity: 1;
+}
+
+/* Header / Menu / Contact */
+header .contact-modal {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: -6px;
+
+  box-sizing: border-box;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 290px;
+
+  background: var(--color-white);
+
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+header .contact-modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+header .contact-modal .arrow {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+
+  overflow: hidden;
+
+  width: 20px;
+  height: 10px;
+}
+
+header .contact-modal .arrow::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  border: 1px solid var(--color-border);
+  width: 12px;
+  height: 12px;
+
+  background-color: var(--color-white);
+
+  content: '';
+
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+}
+
+header .contact-modal .message {
+  padding: 30px 0;
+
+  text-align: center;
+
+  font-size: 13px;
+  color: var(--color-font-darkgray);
+}
+
+header .contact-modal ul li {
+  border-top: 1px solid var(--color-border);
+}
+
+header .contact-modal ul li a {
+  display: block;
+
+  padding: 14px;
+
+  font-size: 13px;
+  color: var(--color-link);
+}
+
+header .contact-modal ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Header / Search */
+header .search-wrapper {
+  /* fixed / absolute 지정 시 block 요소이지만 inline처럼 가로 세로 너비가 content에 맞춰짐 */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* 위치상 부모요소 가로 너비 그대로 받기 (구조 상 아님에 주의) */
+  width: 100%;
+  height: 100%;
+
+  /* 애니메이션 처리를 위해 visibility 사용 */
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+header .search {
+  position: relative;
+
+  margin: 0 auto;
+  max-width: 680px;
+}
+
+header .search .shadow {
+  /* fixed / absolute 지정 시 block 요소이지만 inline처럼 가로 세로 너비가 content에 맞춰짐 */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* 위치상 부모요소 가로 너비 그대로 받기 (구조 상 아님에 주의) */
+  width: 100%;
+  height: 100%;
+
+  /* 불투명 처리 */
+  background-color: var(--color-shadow);
+}
+
+header .search .textfield {
+  position: relative;
+}
+
+/* input은 inline-block 요소로 수평으로 쌓이지만, 가로/세로 너비 및 상하 여백 지정 가능 */
+header .search input {
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 10px;
+  padding: 0 40px;
+  width: 100%;
+  height: var(--header-height);
+
+  /* 투명 배경 처리 */
+  background-color: transparent;
+
+  font-size: 17px;
+  color: var(--color-white);
+
+  /* focus 시 border 없애기 */
+  outline: none;
+}
+
+header .search .search-icon,
+header .search .search-closer {
+  position: absolute;
+  top: 0;
+
+  width: 40px;
+  height: var(--header-height);
+
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header .search .search-icon {
+  left: 0;
+
+  background-image: url('../images/header_search.svg');
+
+  opacity: 0.4;
+}
+
+header .search .search-closer {
+  right: 0;
+
+  background-image: url('../images/header_close.svg');
+
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+header .search .search-closer:hover {
+  opacity: 1;
+}
+
+header .search .recommend {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+
+  /* padding으로 인해 요소가 커지지 않도록 처리 */
+  box-sizing: border-box;
+  /* 시계방향 */
+  border-radius: 0 0 18px 18px;
+  padding: 26px 40px 20px;
+  width: 100%;
+
+  background-color: var(--color-white);
+}
+
+header .search .recommend h3 {
+  margin-bottom: 12px;
+
+  font-size: 12px;
+  color: var(--color-font-darkgray);
+}
+
+header .search .recommend ul li a {
+  display: block;
+
+  /* 좌우 늘어나게 처리 */
+  margin: 0 -14px;
+  padding: 10px 0 10px 30px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+/* 상위 태그 사용자 동작 시, 하위 태그 설정 가능 */
+header .search .recommend ul li:hover a {
+  background-color: var(--color-section);
+  color: var(--color-link);
+}
+
+/* 애니메이션 처리 */
+header .search input,
+header .search .search-icon,
+header .search .recommend h3,
+header .search .recommend li {
+  transition: 0.6s;
+  transform: translate(100px, 0);
+}
+
+/* searching 클래스 존재 시 검색바 보이게 처리 */
+header.searching .search-wrapper {
+  visibility: visible;
+  opacity: 1;
+  /* 검색바 나타날 때만 딜레이 처리 */
+  transition-delay: 0.2s;
+}
+
+/* searching 클래스 존재 시, li 태그들을 안보이게 처리 */
+header.searching ul.menu > li {
+  opacity: 0;
+  transform: scale(0.7);
+  /* transition-delay를 js 코드에서 작성  */
+}
+
+/* 애니메이션 처리 */
+header.searching .search input,
+header.searching .search .search-icon,
+header.searching .search .recommend h3,
+header.searching .search .recommend li {
+  /* 원래 위치로 복구 */
+  transform: translate(0, 0);
+  transition-delay: 0.2s;
+  /* li 태그들의 transition-delay를 js 코드에서 작성  */
+}
+
+/* Navigation */
+nav {
+  /* nav의 부모요소는 body 태그, 따라서 body 태그의 범위 내에서 동작 */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  border-bottom: 1px solid var(--color-border);
+
+  background-color: rgba(255, 255, 255, 0.7);
+  /* 상위 요소 내부를 흐리게 처리  */
+  backdrop-filter: blur(20px);
+}
+
+nav .inner {
+  display: flex;
+  align-items: center;
+
+  max-width: 1000px;
+  height: 52px;
+}
+
+nav h1 {
+  /* 좌로 붙이고 우 끝에 붙이게 처리 */
+  flex-grow: 1;
+
+  font-size: 22px;
+  font-weight: 500;
+}
+
+nav .menu {
+  display: flex;
+  gap: 10px;
+
+  margin-right: 20px;
+}
+
+nav .menu li a {
+  display: block;
+
+  padding: 6px;
+
+  font-size: 11px;
+}
+
+nav .menu li:hover a {
+  color: var(--color-link);
+}
+
+/* 활성 네비게이션 css 처리 */
+nav .menu li.active a {
+  opacity: 0.5;
+  cursor: default;
+}
+
+nav .menu li.active:hover a {
+  color: var(--color-font);
+}
+
+nav .outer-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* Hero */
+.hero {
+  background-color: var(--color-section);
+}
+
+.hero .inner {
+  padding-top: 110px;
+}
+
+.hero h1 {
+  position: absolute;
+  z-index: 1;
+
+  width: 221px;
+  height: 91px;
+
+  background-image: url('../images/hero_pj1_text.png');
+
+  transform: translate(624px, 235px);
+}
+
+.hero .figures {
+  height: 808px;
+}
+
+.hero figure {
+  transform: translate(74px, -64px);
+}
+
+.hero figure figcaption .caption-feature1 {
+  width: 157px;
+  height: 84px;
+
+  background-image: url('../images/hero_pj1_caption_feature1.png');
+
+  transform: translate(0px, 580px);
+}
+
+.hero figure figcaption .caption-feature2 {
+  width: 95px;
+  height: 43px;
+
+  background-image: url('../images/hero_pj1_caption_feature2.png');
+
+  transform: translate(589px, 510px);
+}
+
+.hero figure figcaption .caption-feature3 {
+  width: 110px;
+  height: 43px;
+
+  background-image: url('../images/hero_pj1_caption_feature3.png');
+
+  transform: translate(627px, 631px);
+}
+
+.hero h2 {
+  margin: 0 auto;
+  width: 739px;
+  height: 145px;
+
+  background-image: url('../images/hero_headline.png');
+}
+
+.hero p.summary {
+  margin-top: 40px;
+
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.hero p.description {
+  margin: 18px auto 0;
+  /* br 태그 대신 줄바꿈 처리 위해 width 도입 */
+  width: 88%;
+
+  font-size: 19px;
+  text-align: center;
+}
+
+/* 배치는 각각 따로 처리 */
+.hero .links {
+  padding: 30px 0 70px 0;
+}
+
+/* Project 1 */
+.project1 {
+  margin-top: 110px;
+}
+
+/* Project 1 / Features */
+.project1 .features h1 {
+  width: 500px;
+  height: 280px;
+
+  background-image: url('../images/power_headline.png');
+
+  transform: translate(104px, 0);
+}
+
+.project1 .features .figures {
+  height: 773px;
+}
+
+.project1 .features .figures figcaption {
+  width: 138px;
+  height: 46px;
+
+  background-image: url(../images/power_multiple_apps_caption.png);
+
+  transform: translate(703px, -47px);
+}
+
+/* Project 1 / Troubleshooting 1 */
+.project1 .troubleshooting1 {
+  margin-top: 100px;
+}
+
+.project1 .troubleshooting1 .figures {
+  height: 600px;
+}
+
+.project1 .troubleshooting1 figure {
+  transform: translate(-300px, -60px);
+}
+
+.project1 .troubleshooting1 figcaption {
+  width: 150px;
+  height: 77px;
+
+  background-image: url('../images/power_arcade_caption.png');
+
+  transform: translate(482px, 662px);
+}
+
+/* Project 1 / Troubleshooting 2 */
+.project1 .troubleshooting2 {
+  margin-top: 200px;
+}
+
+.project1 .troubleshooting2 .figures {
+  height: 772px;
+}
+
+.project1 .troubleshooting2 figure {
+  transform: translate(80px, -50px);
+}
+
+.project1 .troubleshooting2 figcaption {
+  width: 142px;
+  height: 46px;
+
+  background-image: url('../images/power_create_caption.png');
+
+  transform: translate(548px, 908px);
+}
+
+/* Project 2 */
+.project2 {
+  margin-top: 450px;
+}
+
+/* Project 2 / Features */
+.project2 .features h1 {
+  width: 500px;
+  height: 280px;
+
+  background-image: url('../images/display_headline.png');
+
+  transform: translate(104px, 0);
+}
+
+.project2 .features .figures {
+  margin-top: 26px;
+
+  height: 814px;
+}
+
+.project2 .features .figures figcaption {
+  width: 145px;
+  height: 45px;
+
+  background-image: url('../images/display_notes_caption.png');
+
+  transform: translate(733px, -25px);
+}
+
+/* Project 2 / Troubleshooting 1 */
+.project2 .troubleshooting1 {
+  margin-top: 100px;
+}
+
+.project2 .troubleshooting1 .figures {
+  height: 600px;
+}
+
+.project2 .troubleshooting1 figure {
+  transform: translate(-300px, -60px);
+}
+
+.project2 .troubleshooting1 figcaption {
+  width: 150px;
+  height: 77px;
+
+  background-image: url('../images/power_arcade_caption.png');
+
+  transform: translate(482px, 662px);
+}
+
+/* Project 3 */
+.project3 {
+  margin-top: 400px;
+}
+
+/* Project 3 / Introduction */
+.project3 .introduction {
+  position: relative;
+}
+
+.project3 .introduction h1 {
+  width: 650px;
+  height: 450px;
+
+  background-image: url('../images/camera_headline.png');
+
+  transform: translate(-25px, 0);
+}
+
+.project3 .introduction .info {
+  /* 형제 요소와 상호작용하지 않고 HTML 구조에서 빠짐 */
+  position: absolute;
+  top: 200px;
+  right: 0;
+}
+
+.project3 .introduction .figures {
+  margin-top: 24px;
+  height: 770px;
+}
+
+.project3 .introduction figure {
+  transform: translate(90px, 0);
+}
+
+.project3 .introduction video {
+  top: 36px;
+  left: 76px;
+
+  -webkit-mask-image: url('../images/camera_video_mask.png');
+  mask-image: url('../images/camera_video_mask.png');
+}
+
+.project3 .introduction .controller-play,
+.project3 .introduction .controller-pause {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 30px;
+  width: 20px;
+
+  color: var(--color-link);
+
+  cursor: pointer;
+
+  transform: translate(428px, -134px) rotate(-4deg);
+}
+
+.project3 .introduction .controller-play:hover,
+.project3 .introduction .controller-pause:hover {
+  text-decoration: underline;
+}
+
+.project3 .introduction .controller-play.hide,
+.project3 .introduction .controller-pause.hide {
+  display: none;
+}
+
+.project3 .introduction figcaption {
+  width: 130px;
+  height: 110px;
+
+  background-image: url('../images/camera_hardware_caption.png');
+  transform: translate(-120px, 331px);
+}
+
+/* Project 3 / Features */
+.project3 .features .figures {
+  height: 910px;
+}
+
+.project3 .features figure {
+  transform: translate(120px, 0);
+}
+
+.project3 .features figcaption {
+  width: 130px;
+  height: 47px;
+
+  background-image: url('../images/camera_edit_caption.png');
+
+  transform: translate(210px, 925px);
+}
+
+/* Project 4 / Introduction */
+.project4 {
+  margin-top: 200px;
+}
+
+.project4 .introduction h1 {
+  width: 730px;
+  height: 330px;
+
+  background-image: url('../images/wireless_headline.png');
+
+  transform: translate(104px, 0);
+}
+
+.project4 .introduction .figures {
+  height: 773px;
+}
+
+.project4 .introduction figure {
+  transform: translate(-68px, 0);
+}
+
+.project4 .introduction figcaption {
+  width: 139px;
+  height: 47px;
+
+  background-image: url('../images/wireless_facetime_caption.png');
+
+  transform: translate(843px, -50px);
+}
+
+/* Project 4 / Features */
+
+.project4 .features figure {
+  transform: translate(34px, 60px);
+}
+
+.project4 .features figcaption {
+  width: 139px;
+  height: 47px;
+
+  background-image: url('../images/wireless_files_caption.png');
+
+  transform: translate(96px, 639px);
+}
+
+/* Project 5 */
+.project5 {
+  margin-top: 195px;
+}
+
+/* Project 5 / Introduction */
+.project5 .introduction {
+}
+
+.project5 .introduction h1 {
+  margin: 0 auto;
+  width: 550px;
+  height: 343px;
+
+  background-image: url('../images/accessories_headline.png');
+}
+
+.project5 .introduction .figures {
+  margin-top: 34px;
+  height: 1021px;
+}
+
+.project5 .introduction figure {
+  transform: translate(-24px, 0);
+}
+
+.project5 .introduction figcaption .caption-memo {
+  width: 169px;
+  height: 41px;
+
+  background-image: url('../images/accessories_caption_memo.png');
+
+  transform: translate(870px, -60px);
+}
+.project5 .introduction figcaption .caption-supports {
+  width: 200px;
+  height: 70px;
+
+  background-image: url('../images/accessories_caption_supports.png');
+
+  transform: translate(160px, 820px);
+}
+
+/* Project 5 / Features */
+.project5 .infos {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Projects */
+.projects {
+  margin-top: 212px;
+}
+
+/* Projects / Summary */
+.projects .summary {
+  align-items: flex-end;
+
+  margin-top: 44px;
+  height: 400px;
+}
+
+.projects .summary h1 {
+  margin: 0 auto;
+  width: 530px;
+  height: 400px;
+
+  background-image: url('../images/ipados_headline.png');
+}
+
+/* Projects / Figures */
+
+.projects .figures {
+  display: flex;
+
+  height: 1300px;
+}
+
+/* div 요소가 flex container 균등 분할 */
+.projects .figures > div {
+  position: relative;
+
+  flex-grow: 1;
+}
+
+.projects .figures .figure-left figure {
+  transform: translate(-225px, 68px);
+}
+
+.projects .figures .figure-left figcaption {
+  width: 163px;
+  height: 53px;
+
+  background-image: url('../images/ipados_split_view_caption.png');
+
+  transform: translate(200px, -38px);
+}
+
+.projects .figures .figure-middle figure {
+  transform: translate(175px, 260px);
+}
+
+.projects .figures .figure-middle figcaption {
+  width: 161px;
+  height: 46px;
+
+  background-image: url('../images/ipados_widgets_caption.png');
+
+  transform: translate(257px, 497px);
+}
+
+.projects .figures .figure-right figure {
+  transform: translate(-660px, 580px);
+}
+
+.projects .figures .figure-right figcaption {
+  width: 82px;
+  height: 97px;
+
+  background-image: url('../images/ipados_quick_note_caption.png');
+
+  transform: translate(511px, 470px);
+}
