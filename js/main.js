@@ -217,3 +217,7 @@ postNavigations.forEach((nav) => {
 
   navigationsEl.append(mapEl);
 });
+
+// date logic
+const thisYearEl = document.querySelector("span.this-year");
+thisYearEl.textContent = new Date().getFullYear();
