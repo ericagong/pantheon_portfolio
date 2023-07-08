@@ -1551,3 +1551,49 @@ footer .posts li {
   font-size: 11px;
   color: var(--color-font-darkgray);
 }
+
+/* Footer / Breadcrumbs */
+footer .breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  margin: 20px 0;
+}
+
+footer .breadcrumbs a {
+  position: relative;
+
+  font-size: 12px;
+  color: var(--color-font-darkgray);
+}
+
+footer .breadcrumbs a.apple-logo {
+  width: 16px;
+  height: 16px;
+
+  background-image: url('../images/path_apple.svg');
+}
+
+footer .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+footer .breadcrumbs a::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -18px;
+
+  margin: auto;
+  width: 8px;
+  height: 18px;
+
+  background-image: url('../images/path_div.svg');
+
+  content: '';
+}
+
+footer .breadcrumbs a:last-child:after {
+  display: none;
+}
