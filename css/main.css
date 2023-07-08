@@ -903,6 +903,12 @@ nav .outer-links {
   gap: 10px;
 }
 
+/* Main */
+/* 화면 가로 넘침 요소 스크롤바 없애기 */
+main {
+  overflow-x: hidden;
+}
+
 /* Hero */
 .hero {
   background-color: var(--color-section);
