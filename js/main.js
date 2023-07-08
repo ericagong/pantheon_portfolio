@@ -1,4 +1,5 @@
 import asyncPatterns from "../data/asyncPatterns.js";
+import postNavigations from "../data/postNavigations.js";
 
 // sprite image's keyframes logic
 function createKeyframesRule() {
@@ -190,4 +191,29 @@ asyncPatterns.forEach((pattern) => {
 		`;
 
   itemsEl.append(itemEl);
+});
+
+// post navigation logic
+const navigationsEl = document.querySelector("footer .navigations");
+
+postNavigations.forEach((nav) => {
+  const mapEl = document.createElement("div");
+
+  mapEl.classList.add("map");
+
+  let mapList = "";
+  nav.maps.forEach((map) => {
+    mapList += /*html*/ `<li><a href="${map.url}">${map.name}</a></li>`;
+  });
+
+  mapEl.innerHTML = /* html */ `
+		<h3>
+			<span class="text">${nav.title}</span>
+		</h3>
+		<ul>
+			${mapList}
+		</ul>
+	`;
+
+  navigationsEl.append(mapEl);
 });

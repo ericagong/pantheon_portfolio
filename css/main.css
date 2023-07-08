@@ -1597,3 +1597,45 @@ footer .breadcrumbs a::after {
 footer .breadcrumbs a:last-child:after {
   display: none;
 }
+
+/* Footer / Post Navigations */
+footer .navigations {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+
+  margin-bottom: 40px;
+  height: 344px;
+}
+
+footer .navigations .map {
+  margin-top: 24px;
+}
+
+footer .navigations .map:nth-child(6) {
+  padding-bottom: 100px;
+}
+
+footer .navigations .map h3 {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+footer .navigations .map h3 .icon {
+  display: none;
+}
+
+footer .navigations .map li {
+  margin-top: 12px;
+
+  font-size: 12px;
+}
+
+footer .navigations .map li a {
+  color: var(--color-font-darkgray);
+}
+
+footer .navigations .map li a:hover {
+  text-decoration: underline;
+}
