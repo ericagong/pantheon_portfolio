@@ -1639,3 +1639,17 @@ footer .navigations .map li a {
 footer .navigations .map li a:hover {
   text-decoration: underline;
 }
+
+footer .how-to-contact {
+  line-height: 1.4;
+  font-size: 12px;
+  color: var(--color-font-darkgray);
+}
+
+footer .how-to-contact a {
+  color: var(--color-link);
+}
+
+footer .how-to-contact a:hover {
+  text-decoration: underline;
+}
