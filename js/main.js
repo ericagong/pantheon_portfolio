@@ -1,3 +1,5 @@
+import asyncPatterns from "../data/asyncPatterns.js";
+
 // sprite image's keyframes logic
 function createKeyframesRule() {
   let x = 0;
@@ -159,3 +161,33 @@ contactModalEl.addEventListener("click", (event) => {
 });
 
 window.addEventListener("click", hideModal);
+
+// compare section data logic
+const itemsEl = document.querySelector("section.compare .items");
+
+asyncPatterns.forEach((pattern) => {
+  const itemEl = document.createElement("div");
+
+  itemEl.classList.add("item");
+
+  let colorList = "";
+  pattern.colors.forEach((color) => {
+    colorList += `<li style="background-color: ${color}"></li>`;
+  });
+
+  itemEl.innerHTML = /* html */ `
+		<div class="thumbnail">
+			<img src="${pattern.thumbnail}" alt="${pattern.name}" />
+		</div>
+		<ul class="colors">
+			${colorList}
+		</ul>
+		<h3 class="name">${pattern.name}</h3>
+		<p class="tagline">${pattern.tagline}</p>
+		<p class="price">₩${Number(pattern.price).toLocaleString("en-US")}</p>
+		<button class="btn">Github</button>
+		<a class="link" href="${pattern.url}">프로젝트 알아보기</a>
+		`;
+
+  itemsEl.append(itemEl);
+});
