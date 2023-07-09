@@ -160,6 +160,13 @@ a.link::after {
   border: 1px solid red;
 }
 
+@media (max-width: 740px) {
+  /* 모바일모드에서는 세로로 쌓이게 처리 */
+  .box {
+    flex-direction: column;
+  }
+}
+
 /* Figures */
 .figures {
   position: relative;
@@ -506,6 +513,48 @@ a.link::after {
   margin-top: 44px;
 
   font-size: 20px;
+}
+
+@media (max-width: 1000px) {
+  .info {
+    max-width: 230px;
+  }
+
+  .infos--large .info {
+    max-width: 288px;
+  }
+
+  .info .icon {
+    margin: -30px 0 -24px -32px;
+
+    transform: scale(0.8);
+  }
+
+  .info p {
+    line-height: 1.4;
+    font-size: 19px;
+  }
+
+  .info a.link {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 740px) {
+  .info {
+    padding: 0 20px;
+    /* 한 줄에 하나씩 쌓이도록 초기화 */
+    max-width: none;
+  }
+
+  .infos--large .info {
+    /* 한 줄에 하나씩 쌓이도록 초기화 */
+    max-width: none;
+  }
+
+  .info a.link {
+    font-size: 17px;
+  }
 }
 
 /* Whitebox */
@@ -1534,7 +1583,8 @@ main {
   height: 773px;
 }
 
-.project1 .features .figures figcaption {
+/* 명시도에 주의 */
+.project1 .features figcaption {
   width: 138px;
   height: 46px;
 
@@ -1585,6 +1635,135 @@ main {
   background-image: url('../images/power_create_caption.png');
 
   transform: translate(548px, 908px);
+}
+
+@media (max-width: 1000px) {
+  .project1 {
+    margin-top: 80px;
+  }
+
+  .project1 .features h1 {
+    width: 310px;
+    height: 180px;
+  }
+
+  .project1 .features .figures {
+    height: 503px;
+  }
+
+  .project1 .features figure {
+    transform: translate(71px, 0);
+  }
+
+  .project1 .features figure img {
+    width: 682px;
+  }
+
+  .project1 .features figcaption {
+    transform: scale(0.8) translate(532px, -58px);
+  }
+
+  .project1 .troubleshooting1 {
+    margin-top: 0;
+  }
+
+  .project1 .troubleshooting1 .figures {
+    height: 480px;
+  }
+
+  .project1 .troubleshooting1 figure {
+    transform: translate(-182px, -6px);
+  }
+
+  .project1 .troubleshooting1 figure img {
+    width: 676px;
+  }
+
+  .project1 .troubleshooting1 figcaption {
+    transform: scale(0.8) translate(316px, 528px);
+  }
+
+  .project1 .troubleshooting2 .figures {
+    height: 588px;
+  }
+
+  .project1 .troubleshooting2 figure {
+    transform: translate(4px, -36px);
+  }
+
+  .project1 .troubleshooting2 figure img {
+    width: 820px;
+  }
+
+  .project1 .troubleshooting2 figcaption {
+    transform: scale(0.8) translate(420px, 747px);
+  }
+}
+
+@media (max-width: 740px) {
+  .project1 .features h1 {
+    margin: 0 auto;
+
+    transform: none;
+  }
+
+  .project1 .features .figures {
+    margin-top: 50px;
+    height: 340px;
+  }
+
+  .project1 .features figure {
+    transform: translate(20px, 0);
+  }
+
+  .project1 .features figure img {
+    width: 462px;
+  }
+
+  .project1 .features figcaption {
+    transform: scale(0.8) translate(112px, -45px);
+  }
+
+  .project1 .troubleshooting1 {
+    margin-top: 30px;
+  }
+
+  .project1 .troubleshooting1 .figures {
+    margin-top: 20px;
+    height: auto;
+
+    /* flex item의 앞 뒤 순서 변경 */
+    order: 1;
+  }
+
+  .project1 .troubleshooting1 figure {
+    transform: translate(20px, 0);
+  }
+
+  .project1 .troubleshooting1 figure img {
+    width: 458px;
+  }
+
+  .project1 .troubleshooting1 .figures figcaption {
+    transform: scale(0.8) translate(316px, 368px);
+  }
+
+  .project1 .troubleshooting2 .figures {
+    margin-top: 20px;
+    height: auto;
+  }
+
+  .project1 .troubleshooting2 figure {
+    transform: translate(100px, 0);
+  }
+
+  .project1 .troubleshooting2 figure img {
+    width: 525px;
+  }
+
+  .project1 .troubleshooting2 figcaption {
+    transform: scale(0.8) translate(254px, 486px);
+  }
 }
 
 /* Project 2 */
