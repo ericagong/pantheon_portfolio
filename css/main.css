@@ -75,6 +75,12 @@ sup {
   max-width: 980px;
 }
 
+@media (max-width: 1000px) {
+  .inner {
+    max-width: 692px;
+  }
+}
+
 /* Button */
 .btn {
   display: flex;
@@ -194,6 +200,7 @@ a.link::after {
     display: flex;
     justify-content: center;
   }
+
   .figures figure {
     /* absolute면 HTML 구조에서 빠지므로 원복 */
     position: relative;
@@ -2267,10 +2274,8 @@ main {
 }
 
 /* Project 5 / Introduction */
-.project5 .introduction {
-}
 
-.project5 .introduction h1 {
+.project5 h1 {
   margin: 0 auto;
   width: 550px;
   height: 343px;
@@ -2278,16 +2283,16 @@ main {
   background-image: url('../images/accessories_headline.png');
 }
 
-.project5 .introduction .figures {
+.project5 .figures {
   margin-top: 34px;
   height: 1021px;
 }
 
-.project5 .introduction figure {
+.project5 figure {
   transform: translate(-24px, 0);
 }
 
-.project5 .introduction figcaption .caption-memo {
+.project5 figcaption .caption-memo {
   width: 169px;
   height: 41px;
 
@@ -2295,7 +2300,7 @@ main {
 
   transform: translate(870px, -60px);
 }
-.project5 .introduction figcaption .caption-supports {
+.project5 figcaption .caption-supports {
   width: 200px;
   height: 70px;
 
@@ -2309,6 +2314,70 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+@media (max-width: 1000px) {
+  .project5 {
+    margin-top: 120px;
+  }
+
+  .project5 h1 {
+    width: 384px;
+    height: 243px;
+  }
+
+  .project5 .figures {
+    height: 700px;
+  }
+
+  .project5 figure {
+    transform: translate(12px, 0);
+  }
+
+  .project5 figure img {
+    width: 712px;
+  }
+
+  .project5 figcaption .caption-memo {
+    transform: scale(0.8) translate(677px, -60px);
+  }
+
+  .project5 figcaption .caption-supports {
+    transform: scale(0.8) translate(101px, 650px);
+  }
+}
+
+@media (max-width: 740px) {
+  .project5 h1 {
+    width: 300px;
+    height: 190px;
+  }
+
+  .project5 .figures {
+    margin-top: 64px;
+    height: auto;
+  }
+
+  .project5 figure img {
+    width: 380px;
+  }
+
+  .project5 figcaption .caption-memo {
+    transform: scale(0.8) translate(186px, -58px);
+  }
+
+  .project5 figcaption .caption-supports {
+    width: 160px;
+    height: 44px;
+
+    background-image: url('../images/accessories_caption_supports_mobile.png');
+
+    transform: scale(1) translate(31px, 335px);
+  }
+
+  .project5 .infos {
+    margin-top: 100px;
+  }
 }
 
 /* Projects */
