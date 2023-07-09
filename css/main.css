@@ -1787,7 +1787,7 @@ main {
   height: 814px;
 }
 
-.project2 .features .figures figcaption {
+.project2 .features figcaption {
   width: 145px;
   height: 45px;
 
@@ -1816,6 +1816,102 @@ main {
   background-image: url('../images/power_arcade_caption.png');
 
   transform: translate(482px, 662px);
+}
+
+@media (max-width: 1000px) {
+  .project2 {
+    margin-top: 180px;
+  }
+
+  .project2 .features h1 {
+    width: 400px;
+    height: 240px;
+
+    transform: translate(120px, 0);
+  }
+
+  .project2 .features .figures {
+    height: 530px;
+  }
+
+  .project2 .features figure {
+    transform: translate(80px, -10px);
+  }
+
+  .project2 .features figure img {
+    width: 676px;
+  }
+
+  .project2 .features figcaption {
+    transform: scale(0.8) translate(540px, -34px);
+  }
+
+  .project2 .troubleshooting1 .figures {
+    height: 330px;
+  }
+
+  .project2 .troubleshooting1 figure {
+    transform: translate(-178px, 0);
+  }
+
+  .project2 .troubleshooting1 figure img {
+    width: 682px;
+  }
+
+  .project2 .troubleshooting1 figcaption {
+    transform: scale(0.8) translate(261px, 540px);
+  }
+}
+
+@media (max-width: 740px) {
+  .project2 .features h1 {
+    margin: 0 auto;
+    width: 290px;
+    height: 308px;
+
+    background-image: url('../images/display_headline_mobile.png');
+
+    transform: none;
+  }
+
+  .project2 .features .figures {
+    margin-top: 60px;
+    height: auto;
+  }
+
+  .project2 .features figure {
+    transform: translate(20px, 0);
+  }
+
+  .project2 .features figure img {
+    width: 458px;
+  }
+
+  .project2 .features figcaption {
+    transform: scale(0.8) translate(220px, -45px);
+  }
+
+  .project2 .troubleshooting1 {
+    margin-top: 30px;
+  }
+
+  .project2 .troubleshooting1 .figures {
+    height: auto;
+
+    order: 1;
+  }
+
+  .project2 .troubleshooting1 figure {
+    transform: translate(20px, 0);
+  }
+
+  .project2 .troubleshooting1 figure img {
+    width: 460px;
+  }
+
+  .project2 .troubleshooting1 figcaption {
+    transform: scale(0.8) translate(261px, 358px);
+  }
 }
 
 /* Project 3 */
@@ -1911,6 +2007,130 @@ main {
   background-image: url('../images/camera_edit_caption.png');
 
   transform: translate(210px, 925px);
+}
+
+@media (max-width: 1000px) {
+  .project3 {
+    margin-top: 165px;
+  }
+
+  .project3 .introduction h1 {
+    width: 405px;
+    height: 270px;
+
+    transform: translate(0, 0);
+  }
+
+  .project3 .introduction .info {
+    top: 0;
+  }
+
+  .project3 .introduction .figures {
+    height: 500px;
+  }
+
+  .project3 .introduction figure img {
+    width: 678px;
+  }
+
+  .project3 .introduction video {
+    top: 23px;
+    left: 50px;
+
+    transform-origin: 0 0;
+    transform: scale(0.65);
+  }
+
+  .project3 .introduction .controller--play,
+  .project3 .introduction .controller-pause {
+    transform: translate(276px, -88px) rotate(-4deg);
+  }
+
+  .project3 .introduction figcaption {
+    transform: scale(0.8) translate(-136px, 306px);
+  }
+
+  .project3 .features .figures {
+    height: auto;
+  }
+
+  .project3 .features figure {
+    transform: translate(40px, 0);
+  }
+
+  .project3 .features figure img {
+    width: 509px;
+  }
+
+  .project3 .features figcaption {
+    transform: scale(0.8) translate(27px, 742px);
+  }
+}
+
+@media (max-width: 740px) {
+  .project3 {
+    margin-top: 120px;
+  }
+
+  .project3 .introduction h1 {
+    margin: 0 auto;
+    width: 304px;
+    height: 350px;
+
+    background-image: url('../images/camera_headline_mobile.png');
+  }
+
+  .project3 .introduction .info {
+    position: static;
+
+    margin-top: 30px;
+  }
+
+  .project3 .introduction .figures {
+    margin-top: 64px;
+    height: auto;
+  }
+
+  .project3 .introduction figure {
+    transform: translate(20px, 0);
+  }
+
+  .project3 .introduction figure img {
+    width: 450px;
+  }
+
+  .project3 .introduction video {
+    top: 15px;
+    left: 33px;
+
+    transform: scale(0.43);
+  }
+
+  .project3 .introduction .controller--play,
+  .project3 .introduction .controller-pause {
+    transform: translate(169px, -51px) rotate(-4deg);
+  }
+
+  .project3 .introduction figcaption {
+    width: 175px;
+    height: 43px;
+
+    background-image: url('../images/camera_hardware_caption_mobile.png');
+
+    transform: scale(1) translate(110px, -40px);
+  }
+
+  .project3 .features .figures {
+    margin-top: 30px;
+  }
+
+  .project3 .features figure img {
+    width: 343px;
+  }
+
+  .project3 .features figcaption {
+    transform: scale(0.8) translate(27px, 502px);
+  }
 }
 
 /* Project 4 / Introduction */
