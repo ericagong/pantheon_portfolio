@@ -2179,6 +2179,88 @@ main {
   transform: translate(96px, 639px);
 }
 
+@media (max-width: 1000px) {
+  .project4 {
+    margin-top: 140px;
+  }
+
+  .project4 .introduction h1 {
+    width: 450px;
+    height: 200px;
+
+    transform: translate(70px, 0);
+  }
+
+  .project4 .introduction .figures {
+    height: 530px;
+  }
+
+  .project4 .introduction figure {
+    transform: translate(0, 0);
+  }
+
+  .project4 .introduction figure img {
+    width: 769px;
+  }
+
+  .project4 .introduction figcaption {
+    transform: scale(0.8) translate(670px, -60px);
+  }
+
+  .project4 .features figure img {
+    width: 676px;
+  }
+
+  .project4 .features figcaption {
+    transform: scale(0.8) translate(43px, 520px);
+  }
+}
+
+@media (max-width: 740px) {
+  .project4 {
+    margin-top: 120px;
+  }
+
+  .project4 .introduction h1 {
+    margin: 0 auto;
+    width: 312px;
+    height: 223px;
+
+    background-image: url('../images/wireless_headline_mobile.png');
+
+    transform: none;
+  }
+
+  .project4 .introduction .figures {
+    margin-top: 64px;
+    height: auto;
+  }
+
+  .project4 .introduction figure img {
+    width: 490px;
+  }
+
+  .project4 .introduction figcaption {
+    transform: scale(0.8) translate(120px, -45px);
+  }
+
+  .project4 .features .figures {
+    margin-top: 30px;
+  }
+
+  .project4 .features figure {
+    transform: translate(20px, 0);
+  }
+
+  .project4 .features figure img {
+    width: 450px;
+  }
+
+  .project4 .features figcaption {
+    transform: scale(0.8) translate(73px, 355px);
+  }
+}
+
 /* Project 5 */
 .project5 {
   margin-top: 195px;
