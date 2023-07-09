@@ -2731,8 +2731,42 @@ main {
 .compare .item .btn {
   margin: 0 auto 14px;
 }
+
 .compare .item a.link {
   font-size: 14px;
+}
+
+@media (max-width: 1000px) {
+  .compare .items {
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin: 68px auto 34px;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 740px) {
+  .compare .whitebox {
+    max-width: 430px;
+  }
+
+  .compare .items {
+    max-width: 190px;
+  }
+
+  .compare .item {
+    border-bottom: none;
+  }
+
+  .compare .links {
+    border-top: 1px solid var(--color-border);
+    padding-top: 40px;
+  }
+
+  .compare a.link {
+    margin-top: 0;
+  }
 }
 
 /* Footer */
