@@ -2416,11 +2416,11 @@ main {
   flex-grow: 1;
 }
 
-.projects .figures .figure-left figure {
+.projects .figure-left figure {
   transform: translate(-225px, 68px);
 }
 
-.projects .figures .figure-left figcaption {
+.projects .figure-left figcaption {
   width: 163px;
   height: 53px;
 
@@ -2429,11 +2429,11 @@ main {
   transform: translate(200px, -38px);
 }
 
-.projects .figures .figure-middle figure {
+.projects .figure-middle figure {
   transform: translate(175px, 260px);
 }
 
-.projects .figures .figure-middle figcaption {
+.projects .figure-middle figcaption {
   width: 161px;
   height: 46px;
 
@@ -2442,17 +2442,136 @@ main {
   transform: translate(257px, 497px);
 }
 
-.projects .figures .figure-right figure {
+.projects .figure-right figure {
   transform: translate(-660px, 580px);
 }
 
-.projects .figures .figure-right figcaption {
+.projects .figure-right figcaption {
   width: 82px;
   height: 97px;
 
   background-image: url('../images/ipados_quick_note_caption.png');
 
   transform: translate(511px, 470px);
+}
+
+@media (max-width: 1000px) {
+  .projects {
+    margin-top: 100px;
+  }
+
+  .projects h1 {
+    margin: 0;
+    width: 357px;
+    height: 274px;
+  }
+
+  .projects .infos {
+    margin-top: -98px;
+  }
+
+  .projects .figures {
+    height: 520px;
+  }
+
+  .projects .figure-left figure {
+    transform: translate(-17px, -187px);
+  }
+
+  .projects .figure-left figure img {
+    width: 441px;
+  }
+
+  .projects .figure-left figcaption {
+    transform: scale(0.8) translate(30px, -50px);
+  }
+
+  .projects .figure-middle figure {
+    transform: translate(180px, 3px);
+  }
+
+  .projects .figure-middle figure img {
+    width: 441px;
+  }
+
+  .projects .figure-middle figcaption {
+    transform: scale(0.8) translate(152px, 345px);
+  }
+
+  .projects .figure-right figure {
+    transform: translate(-346px, 119px);
+  }
+
+  .projects .figure-right figure img {
+    width: 333px;
+  }
+
+  .projects .figure-right figcaption {
+    transform: scale(0.8) translate(350px, 310px);
+  }
+}
+
+@media (max-width: 740px) {
+  .projects h1 {
+    margin: 0 auto;
+    width: 300px;
+    height: 227px;
+  }
+
+  .projects .infos {
+    margin-top: 30px;
+  }
+
+  .projects .figures {
+    display: block;
+    height: auto;
+  }
+
+  .projects .figures > div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .projects .figure-left figure {
+    transform: translate(64px, 55px);
+  }
+
+  .projects .figure-left figure img {
+    width: 370px;
+  }
+
+  .projects .figure-left figcaption {
+    transform: scale(0.8) translate(39px, -55px);
+  }
+
+  .projects .figure-middle figure {
+    transform: translate(-19px, 34px);
+  }
+
+  .projects .figure-middle figure img {
+    width: 375px;
+  }
+
+  .projects .figure-middle figcaption {
+    transform: scale(0.8) translate(252px, 287px);
+  }
+
+  .projects .figure-right figure {
+    transform: translate(35px, 46px);
+  }
+
+  .projects .figure-right figure img {
+    width: 283px;
+  }
+
+  .projects .figure-right figcaption {
+    width: 76px;
+    height: 88px;
+
+    background-image: url('../images/ipados_quick_note_caption_mobile.png');
+
+    transform: scale(1) translate(-65px, 250px);
+  }
 }
 
 /* Section Col2 */
