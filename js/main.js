@@ -209,6 +209,34 @@ contactModalEl.addEventListener("click", (event) => {
 
 window.addEventListener("click", hideModal);
 
+// 모바일 모드 네비게이션 처리
+const navEl = document.querySelector("nav");
+const navMenuToggleEl = navEl.querySelector(".menu-toggler");
+const navMenuShadowEl = navEl.querySelector(".mobile-shadow");
+
+navMenuToggleEl.addEventListener("click", () => {
+  if (navEl.classList.contains("show-menu")) {
+    hideNavMenu();
+  } else {
+    showNavMenu();
+  }
+});
+
+navEl.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
+
+navMenuShadowEl.addEventListener("click", hideNavMenu);
+window.addEventListener("click", hideNavMenu);
+
+function showNavMenu() {
+  navEl.classList.add("show-menu");
+}
+
+function hideNavMenu() {
+  navEl.classList.remove("show-menu");
+}
+
 // compare section data logic
 const itemsEl = document.querySelector("section.compare .items");
 
