@@ -553,6 +553,11 @@ header ul.menu > li {
   transition: 0.4s;
 }
 
+/* 모바일 모드에서만 보이도록 처리 */
+header ul.menu > li.menu-starter {
+  display: none;
+}
+
 header ul.menu > li > a {
   display: flex;
   align-items: center;
@@ -837,6 +842,259 @@ header.searching .search .recommend li {
   transform: translate(0, 0);
   transition-delay: 0.2s;
   /* li 태그들의 transition-delay를 js 코드에서 작성  */
+}
+
+header .mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  header .inner {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 740px) {
+  /* Header 전체 배경 */
+  header::before {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+
+    width: 100%;
+    height: 0;
+
+    background-color: var(--color-header);
+
+    content: '';
+
+    transition: 0.4s;
+  }
+
+  /* 일부 로고만 보이게 처리 */
+  header ul.menu > li {
+    display: none;
+  }
+
+  header ul.menu > li.menu-starter,
+  header ul.menu > li.portfolio-logo,
+  header ul.menu > li.contact-starter {
+    display: flex;
+  }
+
+  header ul.menu > li.menu-starter span {
+    display: block;
+
+    margin-bottom: 6px;
+    width: 15px;
+    height: 1px;
+
+    background-color: var(--color-white);
+
+    transition: 0.4s;
+  }
+
+  header ul.menu > li.menu-starter span:last-child {
+    margin-bottom: 0;
+  }
+
+  header .search-wrapper {
+    top: var(--header-height);
+
+    box-sizing: border-box;
+
+    border-bottom: 1px solid var(--color-header);
+    padding: 0 20px 60px;
+  }
+
+  header .search {
+    max-width: 590px;
+  }
+
+  header .search .shadow {
+    display: none;
+  }
+
+  header .search .textfield {
+    border-radius: 10px;
+    width: 100%;
+
+    background-color: #1d1d1d;
+    transition: 0.2s;
+  }
+
+  header .search .search-closer {
+    display: none;
+  }
+
+  header .search .search-canceler {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+
+    padding: 0 8px;
+    height: var(--header-height);
+
+    color: var(--color-link);
+
+    cursor: pointer;
+
+    transition: 0.4s;
+  }
+
+  header .search input,
+  header .search .search-icon,
+  header .search .recommend h3,
+  header .search .recommend li {
+    transform: translate(0, 0);
+  }
+
+  header .search .recommend {
+    top: 58px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    padding: 26px 0 20px;
+
+    background-color: transparent;
+
+    transition: 0.3s;
+    transform: translate(0, -100px);
+  }
+
+  header .search .recommend ul li {
+    border-bottom: 1px solid var(--color-header);
+  }
+
+  header .search .recommend ul li:last-child {
+    border-bottom: none;
+  }
+
+  header .search .recommend ul li a {
+    padding: 16px 0 16px 16px;
+
+    color: var(--color-font-middlegray);
+  }
+
+  header .search .recommend ul li:hover a {
+    background-color: transparent;
+
+    color: var(--color-link);
+  }
+
+  header .mobile-menu {
+    position: absolute;
+    top: 103px;
+    left: 0;
+
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+
+    box-sizing: border-box;
+    padding: 0 20px;
+    /* 가로 너비 줄어들지 않도록 처리 */
+    width: 100%;
+
+    transition: 0.4s;
+    transform: translate(0, -50px);
+  }
+
+  header .mobile-menu ul {
+    max-width: 590px;
+    margin: 4px auto;
+  }
+
+  header .mobile-menu ul li {
+    border-bottom: 1px solid var(--color-header);
+  }
+
+  header .mobile-menu ul li:last-child {
+    border-bottom: none;
+  }
+
+  header .mobile-menu ul li a {
+    display: block;
+
+    padding: 16px 0;
+
+    font-size: 14px;
+    color: var(--color-font-middlegray);
+  }
+
+  header .mobile-menu ul li:hover a {
+    color: var(--color-white);
+  }
+
+  /* 햄버거 아이콘 X로 애니메이션 처리 */
+  header.show-menu ul.menu > li.menu-starter span:first-child {
+    transform: translate(0, 3.5px) rotate(45deg);
+  }
+
+  header.show-menu ul.menu > li.menu-starter span:last-child {
+    transform: translate(0, -3.5px) rotate(-45deg);
+  }
+
+  header.show-menu {
+    background-color: var(--color-black);
+  }
+
+  header.show-menu::before {
+    height: 100vh;
+    background-color: var(--color-black);
+  }
+
+  /* 모바일 모드일 때 보이지 않도록 처리 */
+  header.show-menu ul.menu > li.contact-starter {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  header.show-menu .search-wrapper {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header.show-menu .mobile-menu {
+    visibility: visible;
+    opacity: 1;
+
+    transform: translate(0, 0);
+  }
+
+  header.show-menu.searching--mobile {
+    transform: translate(0, -30px);
+  }
+
+  header.show-menu.searching--mobile .search .textfield {
+    width: calc(100% - 55px);
+  }
+
+  header.show-menu.searching--mobile .search .recommend {
+    visibility: visible;
+    opacity: 1;
+
+    transform: translate(0, 0);
+  }
+
+  header.show-menu.searching--mobile .search .search-canceler {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header.show-menu.searching--mobile .mobile-menu {
+    visibility: hidden;
+    opacity: 0;
+
+    transform: translate(0, 100px);
+  }
 }
 
 /* Navigation */

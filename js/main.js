@@ -77,10 +77,18 @@ const searchRecommendEls = [
   ...searchWrapperEl.querySelectorAll(".recommend li"),
 ];
 
+function playScroll() {
+  document.documentElement.classList.remove("no-scroll");
+}
+
+function stopScroll() {
+  document.documentElement.classList.add("no-scroll");
+}
+
 function showSearchBar() {
   headerEl.classList.add("searching");
   // 스크롤 불가능
-  document.documentElement.classList.add("no-scroll");
+  stopScroll();
   // Array.prototype.reverse는 원본 배열 변화
   // 오른쪽 요소부터 애니메이션으로 안보이게 처리 (총 0.4초 소요)
   headerMenuEls.reverse().forEach((el, i) => {
@@ -101,7 +109,7 @@ function showSearchBar() {
 function hideSearchBar() {
   headerEl.classList.remove("searching");
   // 스크롤 가능
-  document.documentElement.classList.remove("no-scroll");
+  playScroll();
   // 왼쪽 요소부터 애니메이션으로 보이게 처리 (총 0.4초 소요)
   headerMenuEls.reverse().forEach((el, i) => {
     el.style.transitionDelay = `${(0.4 / headerMenuEls.length) * i}s`;
@@ -118,6 +126,19 @@ function hideSearchBar() {
   searchInputEl.value = "";
 }
 
+// header menu toggle logic
+const menuStarterEl = document.querySelector(".menu-starter");
+
+menuStarterEl.addEventListener("click", () => {
+  if (headerEl.classList.contains("show-menu")) {
+    headerEl.classList.remove("show-menu");
+    playScroll();
+  } else {
+    headerEl.classList.add("show-menu");
+    stopScroll();
+  }
+});
+
 // searching 클래스 선택자 토글처리
 searchStarterEl.addEventListener("click", () => {
   if (headerEl.classList.contains("searching")) {
@@ -128,10 +149,35 @@ searchStarterEl.addEventListener("click", () => {
 });
 
 // 닫기 버튼 클릭 시, 검색바 닫기
-searchCloserEl.addEventListener("click", hideSearchBar);
+searchCloserEl.addEventListener("click", function (event) {
+  event.stopPropagation();
+  hideSearchBar();
+});
 
 // 검색바 외부 클릭 시, 검색바 닫기
 searchShadowEl.addEventListener("click", hideSearchBar);
+
+const searchTextFieldEl = document.querySelector("header .textfield");
+const searchCancelerEl = document.querySelector(".search-canceler");
+
+searchTextFieldEl.addEventListener("click", () => {
+  headerEl.classList.add("searching--mobile");
+  searchInputEl.focus();
+});
+
+searchCancelerEl.addEventListener("click", () => {
+  headerEl.classList.remove("searching--mobile");
+  searchInputEl.value = "";
+});
+
+// 데스크탑 모드 <-> 모바일 모드로 전환 시, 검색바 처리
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 740) {
+    headerEl.classList.remove("searching");
+  } else {
+    headerEl.classList.remove("searching--mobile");
+  }
+});
 
 // contact modal logic
 const contactStarterEl = document.querySelector(".contact-starter");
