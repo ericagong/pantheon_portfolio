@@ -141,6 +141,18 @@ a.link::after {
   content: ' >';
 }
 
+@media (max-width: 740px) {
+  .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  a.link {
+    font-size: 17px;
+  }
+}
+
 /* Box */
 .box {
   display: flex;
@@ -168,6 +180,17 @@ a.link::after {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media (max-width: 740px) {
+  .figures {
+    display: flex;
+    justify-content: center;
+  }
+  .figures figure {
+    /* absolute면 HTML 구조에서 빠지므로 원복 */
+    position: relative;
+  }
 }
 
 /* Infos */
@@ -1386,6 +1409,110 @@ main {
 /* 배치는 각각 따로 처리 */
 .hero .links {
   padding: 30px 0 70px 0;
+}
+
+@media (max-width: 1000px) {
+  .hero .inner {
+    padding-bottom: 80px;
+  }
+
+  .hero h1 {
+    width: 166px;
+    height: 68px;
+    transform: translate(448px, 165px);
+  }
+
+  .hero .figures {
+    margin-bottom: 14px;
+    height: 584px;
+  }
+
+  .hero figure {
+    transform: translate(70px, -24px);
+  }
+
+  .hero figure img {
+    width: 540px;
+  }
+
+  .hero figure figcaption .caption-feature1 {
+    transform: scale(0.8) translate(-9px, 524px);
+  }
+
+  .hero figure figcaption .caption-feature2 {
+    transform: scale(0.8) translate(510px, 422px);
+  }
+
+  .hero figure figcaption .caption-feature3 {
+    transform: scale(0.8) translate(556px, 556px);
+  }
+
+  .hero h2 {
+    width: 515px;
+    height: 95px;
+  }
+}
+
+@media (max-width: 740px) {
+  .hero .inner {
+    padding-top: 40px;
+  }
+
+  .hero h1 {
+    /* position 속성 기본값으로 초기화 */
+    position: static;
+
+    margin: 0 auto 40px;
+
+    transform: none;
+  }
+
+  .hero .figures {
+    margin-bottom: 100px;
+    height: auto;
+  }
+
+  .hero figure {
+    transform: none;
+  }
+
+  .hero figure img {
+    width: 337px;
+  }
+
+  .hero figure figcaption .caption-feature1 {
+    width: 180px;
+    height: 37px;
+
+    background-image: url('../images/hero_ipad_caption_camera_mobile.png');
+
+    transform: scale(1) translate(21px, 368px);
+  }
+
+  .hero figure figcaption .caption-feature2 {
+    transform: scale(0.8) translate(248px, 42px);
+  }
+
+  .hero figure figcaption .caption-feature3 {
+    transform: scale(0.8) translate(288px, 168px);
+  }
+
+  .hero h2 {
+    width: 295px;
+    height: 185px;
+
+    background-image: url('../images/hero_headline_mobile.png');
+  }
+
+  .hero p.summary {
+    font-size: 20px;
+  }
+
+  .hero p.description {
+    width: auto;
+
+    font-size: 17px;
+  }
 }
 
 /* Project 1 */
