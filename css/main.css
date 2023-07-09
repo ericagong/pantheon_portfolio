@@ -2655,6 +2655,12 @@ main {
   color: #03a10e;
 }
 
+@media (max-width: 1000px) {
+  .col1 p br {
+    display: none;
+  }
+}
+
 /* Compare */
 .compare {
   padding: 20px 20px 0;
