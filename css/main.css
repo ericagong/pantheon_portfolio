@@ -602,6 +602,26 @@ a.link::after {
   margin-top: 26px;
 }
 
+@media (max-width: 1000px) {
+  .whitebox {
+    padding: 60px 30px;
+  }
+
+  .whitebox .icon {
+    width: 44px;
+  }
+
+  .whitebox h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 740px) {
+  .whitebox p {
+    font-size: 17px;
+  }
+}
+
 /* Header */
 header {
   --header-height: 44px;
@@ -699,7 +719,7 @@ header .contact-modal.show {
   opacity: 1;
 }
 
-header .contact-modal .arrow {
+header .contact-modal .col2row {
   position: absolute;
   top: -10px;
   right: 12px;
@@ -710,7 +730,7 @@ header .contact-modal .arrow {
   height: 10px;
 }
 
-header .contact-modal .arrow::before {
+header .contact-modal .col2row::before {
   position: absolute;
   top: 0;
   left: 50%;
@@ -2592,6 +2612,30 @@ main {
 .col2 .inner > div {
   margin: 60px 90px 0 0;
   max-width: 410px;
+}
+
+@media (max-width: 1000px) {
+  .col2 .image {
+    width: 258px;
+  }
+}
+
+@media (max-width: 740px) {
+  .col2 .inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col2 .inner > div {
+    margin: 0 0 30px;
+    max-width: none;
+
+    text-align: center;
+  }
+
+  .col2 .icon {
+    margin: 0 auto 20px;
+  }
 }
 
 .col1 {
